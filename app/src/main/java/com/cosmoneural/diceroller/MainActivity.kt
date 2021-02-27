@@ -9,19 +9,20 @@ import android.widget.Toast
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
+    lateinit var rollButton: Button
+    lateinit var imgView: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val rollButton: Button = findViewById(R.id.btn_roll)
-        var imgView: ImageView = findViewById(R.id.img_dice)
-
+        rollButton = findViewById(R.id.btn_roll)
+        imgView = findViewById(R.id.img_dice)
         rollButton.setOnClickListener {
-            roll(imgView)
+            roll()
         }
     }
 
 
-    fun roll(imgView: ImageView){
+    fun roll(){
         //Toast.makeText(this, "clicked" , Toast.LENGTH_SHORT).show()
         val randomInt = Random.nextInt(6) + 1
         val drawableResource = when(randomInt) {
